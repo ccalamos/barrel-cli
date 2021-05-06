@@ -1,8 +1,8 @@
-import Command from '../command.ts';
+import Command from "../command.ts";
 
-const LoginCommand = new Command('login', {
-  description: 'Login to GitHub',
-  action: () => console.log('hello from login')
+const LoginCommand = new Command("login", {
+  description: "Login to GitHub",
+  action: () => console.log("hello from login"),
 });
 
 export default LoginCommand;

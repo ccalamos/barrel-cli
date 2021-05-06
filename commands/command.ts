@@ -1,5 +1,5 @@
-import { Command as CLIMod } from 'cliffy/command/mod.ts';
-import type { ICommand } from '/types';
+import { Command as CLIMod } from "cliffy/command/mod.ts";
+import type { ICommand } from "/types";
 
 export default class Command implements ICommand {
   public name!: string;
@@ -8,7 +8,7 @@ export default class Command implements ICommand {
   public arguments: string[];
   private mod: CLIMod;
 
-  constructor(name: string, options: Omit<ICommand, 'name'>) {
+  constructor(name: string, options: Omit<ICommand, "name">) {
     this.name = name;
     this.description = options.description;
     this.action = options.action;

@@ -1,4 +1,4 @@
-type SingleNum = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '0';
+type SingleNum = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "0";
 
 export interface ICommand {
   name: string;
@@ -12,8 +12,13 @@ export interface IVersion {
   month: `${SingleNum}${SingleNum}`;
   minor: `${number}`;
   patch: `${number}`;
-  separator: '.';
-  prefix: '' | 'v';
+  separator: ".";
+  prefix: "" | "v";
 }
 
-export type ValidVersion = `${IVersion['prefix']}${IVersion['year']}${IVersion['separator']}${IVersion['month']}${IVersion['separator']}${IVersion['minor']}${IVersion['separator']}${IVersion['patch']}`;
+export type ValidVersion =
+  `${IVersion["prefix"]}${IVersion["year"]}${IVersion["separator"]}${IVersion[
+    "month"
+  ]}${IVersion["separator"]}${IVersion["minor"]}${IVersion[
+    "separator"
+  ]}${IVersion["patch"]}`;
