@@ -1,8 +1,8 @@
 <h1 align="center">Barrel CLI 🛢</h1>
 
 <p align="center" class="badges-container">
-  <a href="https://github.com/ccalamos/barrel/releases">
-    <img alt="Version" src="https://img.shields.io/github/v/release/ccalamos/barrel?logo=github&color=blue" />
+  <a href="https://github.com/ccalamos/barrel-cli/releases">
+    <img alt="Version" src="https://img.shields.io/github/v/release/ccalamos/barrel-cli?logo=github&color=blue" />
   </a>
   <a href="https://deno.land/">
     <img alt="Deno version" src="https://img.shields.io/badge/deno-^1.9.2-blue?logo=deno" />
