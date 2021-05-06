@@ -1,5 +1,5 @@
 import { Command as CLIMod } from "cliffy/command/mod.ts";
-import type { ICommand } from "/types";
+import type { ICommand } from "types";
 
 export default class Command implements ICommand {
   public name!: string;

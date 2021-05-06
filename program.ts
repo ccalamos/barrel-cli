@@ -1,6 +1,6 @@
 import { Command as CLIMod } from "cliffy/command/mod.ts";
 
-import Commands from "/commands/index.ts";
+import Commands from "./commands/index.ts";
 import { Version } from "utils/index.ts";
 
 const Program = new CLIMod();
