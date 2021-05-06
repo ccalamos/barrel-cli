@@ -5,7 +5,7 @@ import { getVersion } from "../../utils/version.ts";
 export default async function () {
   console.log("Looking up latest version...");
 
-  const versionMetaUrl = "https://cdn.deno.land/barrel-cli/meta/versions.json";
+  const versionMetaUrl = "https://cdn.deno.land/barrel/meta/versions.json";
   const { latest } = await (await fetch(versionMetaUrl)).json();
 
   if (latest === getVersion(true)) {
@@ -22,11 +22,11 @@ export default async function () {
       "-A",
       "--unstable",
       "--import-map",
-      "https://deno.land/x/barrel-cli@${latest}/import_map.json",
+      `https://deno.land/x/barrel@${latest}/import_map.json`,
       "-n",
       "barrel",
       "-f",
-      `https://deno.land/x/barrel-cli@${latest}/cli.ts`,
+      `https://deno.land/x/barrel@${latest}/cli.ts`,
     ],
     stdout: "null",
     stderr: "inherit",
