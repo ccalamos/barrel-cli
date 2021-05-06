@@ -8,7 +8,7 @@ const VERSION_INFO: IVersion = {
     "0",
   ) as IVersion["month"],
   minor: "0",
-  patch: "1",
+  patch: "2",
   separator: ".",
   prefix: "v",
 };
