@@ -1,4 +1,4 @@
-import { IVersion, ValidVersion } from "/types";
+import { IVersion, ValidVersion } from "../types.ts";
 
 const CURRENT_DATE = new Date();
 const VERSION_INFO: IVersion = {
