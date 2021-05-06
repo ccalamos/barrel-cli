@@ -1,6 +1,5 @@
 import { dirname, join } from "https://deno.land/std@0.95.0/path/mod.ts";
 import { existsSync } from "https://deno.land/std@0.95.0/fs/exists.ts";
-import { getVersion } from "../../utils/version.ts";
 
 export default async function () {
   console.log("Looking up latest version...");
@@ -8,13 +7,9 @@ export default async function () {
   const versionMetaUrl = "https://cdn.deno.land/barrel/meta/versions.json";
   const { latest } = await (await fetch(versionMetaUrl)).json();
 
-  if (latest === getVersion(true)) {
-    console.log("Already up-to-date!");
-    Deno.exit(0);
-  }
-
   const denoExecPath = Deno.execPath();
   const cmdExists = existsSync(join(dirname(denoExecPath), "barrel"));
+
   const p = Deno.run({
     cmd: [
       denoExecPath,
