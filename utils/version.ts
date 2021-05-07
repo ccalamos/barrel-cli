@@ -4,7 +4,7 @@ const VERSION_INFO: IVersion = {
   year: "21",
   month: "05",
   minor: "0",
-  patch: "4",
+  patch: "6",
   separator: ".",
   prefix: "v",
 };
