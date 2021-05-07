@@ -6,7 +6,7 @@ import { Version } from "./utils/index.ts";
 const Program = new CLIMod();
 Program.name("barrel");
 Program.version(Version.getVersion());
-Program.description("Mono-Repo for Multi-Repos");
+Program.description('Mono-Repo for Multi-Repos');
 Program.allowEmpty(false);
 
 Commands.forEach(([name, command]) => {
