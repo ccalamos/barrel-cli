@@ -9,9 +9,8 @@ export default async function (isUpdate = false) {
   const { latest } = await (await fetch(versionMetaUrl)).json();
 
   const denoExecPath = Deno.execPath();
-  const cmdExists = existsSync(join(dirname(denoExecPath), "barrel"));
 
-  if (isUpdate && cmdExists && latest === getVersion()) {
+  if (isUpdate && latest === getVersion()) {
     console.log("Already up-to-date!");
     Deno.exit(0);
   }
