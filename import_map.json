@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "types": "./types.ts",
+    "utils/": "./utils/",
+    "cliffy/": "https://deno.land/x/cliffy@v0.18.2/"
+  }
+}
