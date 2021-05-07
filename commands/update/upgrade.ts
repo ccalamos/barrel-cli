@@ -1,5 +1,3 @@
-import { dirname, join } from "https://deno.land/std@0.95.0/path/mod.ts";
-import { existsSync } from "https://deno.land/std@0.95.0/fs/exists.ts";
 import { getVersion } from "../../utils/version.ts";
 
 export default async function (isUpdate = false) {
