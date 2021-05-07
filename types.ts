@@ -1,4 +1,4 @@
-type _Num = '1' | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "0";
+type _Num = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "0";
 
 export interface ICommand {
   name: string;
