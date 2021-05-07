@@ -1,7 +1,7 @@
-import { Command as CLIMod } from "cliffy/command/mod.ts";
+import { Command as CLIMod } from "https://deno.land/x/cliffy@v0.18.2/command/mod.ts";
 
 import Commands from "./commands/index.ts";
-import { Version } from "utils/index.ts";
+import { Version } from "./utils/index.ts";
 
 const Program = new CLIMod();
 Program.name("barrel");
