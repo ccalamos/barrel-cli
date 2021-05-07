@@ -1,12 +1,8 @@
 import { IVersion, ValidVersion } from "../types.ts";
 
-const CURRENT_DATE = new Date();
 const VERSION_INFO: IVersion = {
-  year: CURRENT_DATE.getFullYear().toString().slice(2) as IVersion["year"],
-  month: (CURRENT_DATE.getMonth() + 1).toString().padStart(
-    2,
-    "0",
-  ) as IVersion["month"],
+  year: "21",
+  month: "05",
   minor: "0",
   patch: "4",
   separator: ".",
