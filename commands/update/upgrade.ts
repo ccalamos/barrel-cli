@@ -1,6 +1,6 @@
 import { getVersion } from "../../utils/version.ts";
 
-export default async function (isUpdate = false) {
+export default async function (isUpdate = false): Promise<void> {
   console.log("Looking up latest version...");
 
   const versionMetaUrl = "https://cdn.deno.land/barrel/meta/versions.json";
@@ -13,34 +13,30 @@ export default async function (isUpdate = false) {
     Deno.exit(0);
   }
 
-  try {
-    const p = Deno.run({
-      cmd: [
-        denoExecPath,
-        "install",
-        "-A",
-        "--unstable",
-        "--location",
-        "http://0.0.0.0/",
-        "-n",
-        "barrel",
-        "-f",
-        `https://deno.land/x/barrel@${latest}/cli.ts`,
-      ],
-      stdout: "null",
-      stderr: "inherit",
-    });
-    const status = await p.status();
-    if (status.success) {
-      if (isUpdate) {
-        console.log(`Barrel-CLI is updated to ${latest}!`);
-      } else {
-        console.log("Barrel-CLI was installed successfully!");
-        console.log(`Run 'barrel -h' to get started.`);
-      }
+  const p = Deno.run({
+    cmd: [
+      denoExecPath,
+      "install",
+      "-A",
+      "--unstable",
+      "--location",
+      "http://0.0.0.0/",
+      "-n",
+      "barrel",
+      "-f",
+      `https://deno.land/x/barrel@${latest}/cli.ts`,
+    ],
+    stdout: "null",
+    stderr: "inherit",
+  });
+  const status = await p.status();
+  if (status.success) {
+    if (isUpdate) {
+      console.log(`Barrel-CLI is updated to ${latest}!`);
+    } else {
+      console.log("Barrel-CLI was installed successfully!");
+      console.log(`Run 'barrel -h' to get started.`);
     }
-    Deno.exit(status.code);
-  } catch (e) {
-    console.log(e);
   }
+  Deno.exit(status.code);
 }

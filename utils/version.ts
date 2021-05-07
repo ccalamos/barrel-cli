@@ -17,3 +17,7 @@ export function getVersion(usePrefix = false): ValidVersion {
 
   return `${v}${year}${_}${month}${_}${minor}${_}${patch}` as ValidVersion;
 }
+
+if (import.meta.main) {
+  console.log(getVersion());
+}
