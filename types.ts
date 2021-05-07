@@ -1,4 +1,4 @@
-type SingleNum = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "0";
+type _Num = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "0";
 
 export interface ICommand {
   name: string;
@@ -8,8 +8,8 @@ export interface ICommand {
 }
 
 export interface IVersion {
-  year: `${SingleNum}${SingleNum}`;
-  month: `${SingleNum}${SingleNum}`;
+  year: `${_Num}${_Num}`;
+  month: `${_Num}${_Num}`;
   minor: `${number}`;
   patch: `${number}`;
   separator: ".";
