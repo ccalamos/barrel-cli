@@ -1,5 +1,16 @@
-import InstallOrUpgrade from "./commands/update/upgrade.ts";
-
 if (import.meta.main) {
-  await InstallOrUpgrade();
+  const installProcess = Deno.run({
+    cmd: [
+      Deno.execPath(),
+      "run",
+      "-A",
+      `--import-map=./import_map.json`,
+      `./commands/update/upgrade.ts`,
+    ],
+    stdout: "inherit",
+    stderr: "inherit",
+  });
+  const status = await installProcess.status();
+
+  Deno.exit(status.code);
 }

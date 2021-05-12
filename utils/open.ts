@@ -1,4 +1,4 @@
-export async function url(url: string): Promise<Deno.ProcessStatus> {
+export async function open(url: string): Promise<Deno.ProcessStatus> {
   const programAliases: Record<symbol | string, string> = {
     windows: "explorer",
     darwin: "open",

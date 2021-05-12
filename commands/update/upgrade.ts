@@ -1,6 +1,6 @@
-import { getVersion } from "../../utils/version.ts";
+import { getVersion } from "utils";
 
-export default async function (isUpdate = false): Promise<void> {
+export default async function updateCLI(isUpdate = false): Promise<void> {
   console.log("Looking up latest version...");
 
   const versionMetaUrl = "https://cdn.deno.land/barrel/meta/versions.json";
@@ -19,6 +19,7 @@ export default async function (isUpdate = false): Promise<void> {
       "install",
       "-A",
       "--unstable",
+      `--import-map=https://deno.land/x/barrel@${latest}/import_map.json`,
       "--location",
       "http://0.0.0.0/",
       "-n",
@@ -39,4 +40,8 @@ export default async function (isUpdate = false): Promise<void> {
     }
   }
   Deno.exit(status.code);
+}
+
+if (import.meta.main) {
+  updateCLI(false);
 }

@@ -2,10 +2,10 @@
 
 <p align="center" class="badges-container">
   <a href="https://github.com/ccalamos/barrel-cli/releases">
-    <img alt="Version" src="https://img.shields.io/github/v/release/ccalamos/barrel-cli?logo=github&color=blue" />
+    <img alt="Version" src="https://img.shields.io/github/v/release/ccalamos/barrel-cli?logo=github&include_prereleases" />
   </a>
   <a href="https://deno.land/">
-    <img alt="Deno version" src="https://img.shields.io/badge/deno-^1.9.2-blue?logo=deno" />
+    <img alt="Deno version" src="https://img.shields.io/badge/deno-^1.10.1-blue?logo=deno" />
   </a>
   <a href="./LICENSE">
     <img alt="License" src="https://img.shields.io/github/license/ccalamos/barrel-cli?logo=github" />
@@ -25,22 +25,10 @@
 
 This CLI tool can be installed in the following ways:
 
-Deno:
+Deno (Requires Deno v1.10 or higher):
 
 ```zsh
 deno run -A https://deno.land/x/barrel/install.ts
-```
-
-HomeBrew:
-
-```zsh
-brew install barrel
-```
-
-GitHub:
-
-```zsh
-gh clone barrel-cli
 ```
 
 ## ❯ License

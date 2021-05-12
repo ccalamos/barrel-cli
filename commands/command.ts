@@ -1,5 +1,5 @@
-import { Command as CLIMod } from "https://deno.land/x/cliffy@v0.18.2/command/mod.ts";
-import type { ICommand } from "../types.ts";
+import { Command as CLIMod } from "cliffy/command/mod.ts";
+import type { ICommand } from "types";
 
 export default class Command implements ICommand {
   public name!: string;

@@ -1,11 +1,11 @@
-import { Command as CLIMod } from "https://deno.land/x/cliffy@v0.18.2/command/mod.ts";
+import { Command as CLIMod } from "cliffy/command/mod.ts";
 
-import Commands from "./commands/index.ts";
-import { Version } from "./utils/index.ts";
+import Commands from "commands/index.ts";
+import { getVersion } from "utils";
 
 const Program = new CLIMod();
 Program.name("barrel");
-Program.version(Version.getVersion());
+Program.version(getVersion());
 Program.description("Mono-Repo for Multi-Repos");
 Program.allowEmpty(false);
 

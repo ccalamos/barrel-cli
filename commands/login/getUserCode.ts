@@ -1,8 +1,8 @@
-import { Request } from "../../utils/index.ts";
+import { post } from "utils";
 import type {
   IGitHubGetUserCodePayload,
   IGitHubGetUserCodeResponse,
-} from "../../types.ts";
+} from "types";
 
 const PAYLOAD: IGitHubGetUserCodePayload = {
   // deno-lint-ignore camelcase
@@ -10,7 +10,7 @@ const PAYLOAD: IGitHubGetUserCodePayload = {
 };
 
 export default async function (): Promise<IGitHubGetUserCodeResponse> {
-  return await Request.post<IGitHubGetUserCodeResponse>(
+  return await post<IGitHubGetUserCodeResponse>(
     "https://github.com/login/device/code",
     PAYLOAD,
   );

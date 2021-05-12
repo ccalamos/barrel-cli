@@ -1,10 +1,10 @@
-import { IVersion, ValidVersion } from "../types.ts";
+import { IVersion, ValidVersion } from "types";
 
 const VERSION_INFO: IVersion = {
   year: "21",
   month: "05",
-  minor: "0",
-  patch: "11",
+  minor: "1",
+  patch: "0",
   separator: ".",
   prefix: "v",
 };
