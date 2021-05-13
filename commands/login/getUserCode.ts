@@ -1,17 +1,31 @@
-import { post } from "utils";
 import type {
+  GitHubGetUserCodeResponse,
   IGitHubGetUserCodePayload,
-  IGitHubGetUserCodeResponse,
+  IGitHubGetUserCodeResponseOK,
+  IGitHubResponseError,
 } from "types";
+
+import { isErrorResponse, post } from "utils";
+import { GITHUB_CLIENT_ID, GITHUB_USER_CODE_URI } from "globals";
 
 const PAYLOAD: IGitHubGetUserCodePayload = {
   // deno-lint-ignore camelcase
-  client_id: "44d84527b1f7f3af59ed",
+  client_id: GITHUB_CLIENT_ID,
+  scope: ["repo"].join(" "),
 };
 
-export default async function (): Promise<IGitHubGetUserCodeResponse> {
-  return await post<IGitHubGetUserCodeResponse>(
-    "https://github.com/login/device/code",
+export default async function () {
+  const response = await post<GitHubGetUserCodeResponse>(
+    GITHUB_USER_CODE_URI,
     PAYLOAD,
+  );
+
+  return new Promise(
+    (
+      resolve: (response: IGitHubGetUserCodeResponseOK) => void,
+      reject: (reason: IGitHubResponseError) => void,
+    ) => {
+      isErrorResponse(response) ? reject(response) : resolve(response);
+    },
   );
 }

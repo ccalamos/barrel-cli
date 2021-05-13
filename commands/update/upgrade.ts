@@ -1,4 +1,9 @@
+import type { FilePath, ValidVersion } from "types";
 import { getVersion } from "utils";
+
+function getBarrelURI(version: ValidVersion, filePath: FilePath) {
+  return `https://deno.land/x/barrel@${version}/${filePath}`;
+}
 
 export default async function updateCLI(isUpdate = false): Promise<void> {
   console.log("Looking up latest version...");
@@ -13,24 +18,24 @@ export default async function updateCLI(isUpdate = false): Promise<void> {
     Deno.exit(0);
   }
 
-  const p = Deno.run({
+  const subProcess = Deno.run({
     cmd: [
       denoExecPath,
       "install",
       "-A",
       "--unstable",
-      `--import-map=https://deno.land/x/barrel@${latest}/import_map.json`,
+      `--import-map=${getBarrelURI(latest, "import_map.json")}`,
       "--location",
       "http://0.0.0.0/",
       "-n",
       "barrel",
       "-f",
-      `https://deno.land/x/barrel@${latest}/cli.ts`,
+      getBarrelURI(latest, "cli.ts"),
     ],
     stdout: "null",
     stderr: "inherit",
   });
-  const status = await p.status();
+  const status = await subProcess.status();
   if (status.success) {
     if (isUpdate) {
       console.log(`Barrel-CLI is updated to ${latest}!`);

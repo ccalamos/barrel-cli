@@ -1,5 +1,9 @@
 type _Num = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "0";
 
+export type Scalar = number | string | boolean;
+
+export type FilePath = `${string}.${string}`;
+
 export interface ICommand {
   name: string;
   description: string;
@@ -23,13 +27,26 @@ export type ValidVersion =
     "separator"
   ]}${IVersion["patch"]}`;
 
+export interface IAPIResponseError {
+  error: boolean;
+  message: string;
+}
+
+export interface IGitHubResponseError {
+  error: string;
+  // deno-lint-ignore camelcase
+  error_description: string;
+  // deno-lint-ignore camelcase
+  error_uri: string;
+}
+
 export interface IGitHubGetUserCodePayload {
   // deno-lint-ignore camelcase
   client_id: string;
   scope?: string;
 }
 
-export interface IGitHubGetUserCodeResponse {
+export interface IGitHubGetUserCodeResponseOK {
   // deno-lint-ignore camelcase
   device_code: string;
   // deno-lint-ignore camelcase
@@ -41,6 +58,10 @@ export interface IGitHubGetUserCodeResponse {
   interval: number;
 }
 
+export type GitHubGetUserCodeResponse =
+  | IGitHubGetUserCodeResponseOK
+  | IGitHubResponseError;
+
 export interface IGitHubPollAuthPayload {
   // deno-lint-ignore camelcase
   client_id: string;
@@ -50,10 +71,19 @@ export interface IGitHubPollAuthPayload {
   grant_type: "urn:ietf:params:oauth:grant-type:device_code";
 }
 
-export interface IGitHubPollAuthResponse {
+export interface IGitHubPollAuthResponseOK {
   // deno-lint-ignore camelcase
   access_token: string;
   // deno-lint-ignore camelcase
   token_type: "bearer";
   scope: string;
 }
+
+export type GitHubPollAuthResponse =
+  | IGitHubPollAuthResponseOK
+  | IGitHubResponseError;
+
+export type PollOptions = {
+  interval: number;
+  expiresIn: number;
+};

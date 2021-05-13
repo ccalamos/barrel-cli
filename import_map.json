@@ -2,6 +2,7 @@
   "imports": {
     "types": "./types.ts",
     "utils": "./utils/index.ts",
+    "globals": "./globals.ts",
     "commands/": "./commands/",
     "cliffy/": "https://deno.land/x/cliffy@v0.18.2/"
   }

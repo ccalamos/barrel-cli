@@ -1,4 +1,4 @@
-import { IVersion, ValidVersion } from "types";
+import type { IVersion, ValidVersion } from "types";
 
 const VERSION_INFO: IVersion = {
   year: "21",

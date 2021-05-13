@@ -1,4 +1,3 @@
-import { IGitHubGetUserCodeResponse } from "types";
 import { open } from "utils";
 
 function getPrompt(code: string): Uint8Array {
@@ -12,16 +11,17 @@ function getPrompt(code: string): Uint8Array {
 }
 
 export default async function (
-  gResponse: Pick<IGitHubGetUserCodeResponse, "user_code" | "verification_uri">,
+  userCode: string,
+  verificationURI: string,
 ) {
-  await Deno.stdout.write(getPrompt(gResponse.user_code));
+  await Deno.stdout.write(getPrompt(userCode));
   await Deno.stdin.read(new Uint8Array(1024));
-  const status = await open(gResponse.verification_uri);
+  const status = await open(verificationURI);
 
   if (!status.success) {
     console.log("Failed to open GitHub...");
     console.log(
-      `Please navigate in your browser to \`${gResponse.verification_uri}\``,
+      `Please navigate in your browser to \`${verificationURI}\``,
     );
   }
 }

@@ -1,23 +1,21 @@
 import Command from "../command.ts";
 import getUserCode from "./getUserCode.ts";
 import promptOpen from "./promptOpen.ts";
+import pollAuth from "./pollAuth.ts";
 
 const LoginCommand = new Command("login", {
   description: "Login to GitHub",
   action: async (): Promise<void> => {
     await getUserCode().then((response) => {
-      /**
-       *
-       * Promise Race
-       *
-       * Show user prompt
-       *
-       * Setup Polling call to GitHub
-       * Setup TimeOut to fail
-       * Setup Promise Race to see which one will resolve first
-       *
-       */
-      return promptOpen(response);
+      promptOpen(response.user_code, response.verification_uri);
+      return pollAuth(
+        response.device_code,
+        response.interval,
+        response.expires_in,
+      );
+    }).catch((reason) => {
+      console.error(reason);
+      Deno.exit(1);
     });
   },
 });
