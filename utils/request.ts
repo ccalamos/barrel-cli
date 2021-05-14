@@ -4,7 +4,7 @@ export async function get<
   ResponseData extends Record<symbol, Scalar>,
 >(uri: string, token?: string): Promise<ResponseData> {
   const headers: HeadersInit = {
-    "Content-Type": "application/json",
+    "Accept": "application/vnd.github.v3+json",
   };
 
   if (token != null) {

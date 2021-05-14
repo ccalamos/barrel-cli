@@ -17,6 +17,7 @@ export default async function (
   await Deno.stdout.write(getPrompt(userCode));
   await Deno.stdin.read(new Uint8Array(1024));
   const status = await open(verificationURI);
+  console.log("Waiting for response from GitHub...");
 
   if (!status.success) {
     console.log("Failed to open GitHub...");

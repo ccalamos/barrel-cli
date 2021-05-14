@@ -6,7 +6,7 @@ import pollAuth from "./pollAuth.ts";
 const LoginCommand = new Command("login", {
   description: "Login to GitHub",
   action: async (): Promise<void> => {
-    await getUserCode().then((response) => {
+    const { access_token } = await getUserCode().then((response) => {
       promptOpen(response.user_code, response.verification_uri);
       return pollAuth(
         response.device_code,
@@ -14,9 +14,11 @@ const LoginCommand = new Command("login", {
         response.expires_in,
       );
     }).catch((reason) => {
-      console.error(reason);
+      console.error(reason.message);
       Deno.exit(1);
     });
+
+    // Save access_token in a local config file to access later
   },
 });
 
