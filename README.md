@@ -5,7 +5,7 @@
     <img alt="Version" src="https://img.shields.io/github/v/release/ccalamos/barrel-cli?logo=github&include_prereleases" />
   </a>
   <a href="https://deno.land/">
-    <img alt="Deno version" src="https://img.shields.io/badge/deno-^1.10.1-blue?logo=deno" />
+    <img alt="Deno version" src="https://img.shields.io/badge/deno-^1.10.2-blue?logo=deno" />
   </a>
   <a href="./LICENSE">
     <img alt="License" src="https://img.shields.io/github/license/ccalamos/barrel-cli?logo=github" />
