@@ -23,7 +23,10 @@ export async function get<
 
 export async function post<
   ResponseData extends Record<symbol, Scalar>,
->(uri: string, payload: Record<symbol, string>): Promise<ResponseData> {
+>(
+  uri: string,
+  payload: Record<symbol, string>,
+): Promise<ResponseData> {
   const response = await fetch(uri, {
     method: "POST",
     cache: "no-cache",

@@ -5,7 +5,9 @@ import { Store } from "utils";
 const LogoutCommand = new Command("logout", {
   description: "Logout of GitHub",
   action: (): void => {
-    Store.remove("accessToken");
+    const authConfigKeys = ["accessToken", "username", "name"];
+    authConfigKeys.forEach((key: string) => Store.remove(key));
+
     console.log("Successfully logged out!");
   },
 });

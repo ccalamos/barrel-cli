@@ -25,7 +25,9 @@ export default async function () {
       resolve: (response: IGitHubGetUserCodeResponseOK) => void,
       reject: (reason: IGitHubResponseError) => void,
     ) => {
-      isErrorResponse(response) ? reject(response) : resolve(response);
+      isErrorResponse(response)
+        ? reject(response as IGitHubResponseError)
+        : resolve(response as IGitHubGetUserCodeResponseOK);
     },
   );
 }

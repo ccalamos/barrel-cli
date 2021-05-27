@@ -19,5 +19,5 @@ export function getVersion(usePrefix = false): ValidVersion {
 }
 
 if (import.meta.main) {
-  console.log(getVersion());
+  console.log(getVersion(["--prefix", "-p"].includes(Deno.args[0])));
 }
