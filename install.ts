@@ -5,7 +5,7 @@ if (import.meta.main) {
       "run",
       "-A",
       `--import-map=./import_map.json`,
-      `./commands/update/upgrade.ts`,
+      `./commands/upgrade/upgrade.ts`,
     ],
     stdout: "inherit",
     stderr: "inherit",
