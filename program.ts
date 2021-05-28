@@ -7,7 +7,7 @@ const Program = new CLIMod<void>();
 Program.name("barrel");
 Program.version(getVersion(true));
 Program.versionOption(
-  " -v, --version",
+  "-v, --version, -V",
   "Print version info.",
   function (this: CLIMod<void>) {
     console.log("%s", this.getVersion());

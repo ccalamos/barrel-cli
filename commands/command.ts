@@ -23,7 +23,9 @@ export default class Command<Arguments extends string[]>
     }
 
     this.mod.description(this.description);
-    this.mod.action((_options, ...args) => this.action(args as Arguments));
+    this.mod.action((_options, ...args) =>
+      this.action((args ?? []) as Arguments)
+    );
 
     return [this.name, this.mod];
   }

@@ -5,7 +5,7 @@ function getBarrelURI(version: ValidVersion, filePath: FilePath) {
   return `https://deno.land/x/barrel@${version}/${filePath}`;
 }
 
-export default async function upgradeCLI(isUpdate = false): Promise<void> {
+export default async function upgradeCLI(isUpdate = true): Promise<void> {
   console.log("Looking up latest version...");
 
   const versionMetaUrl = "https://cdn.deno.land/barrel/meta/versions.json";
@@ -24,9 +24,8 @@ export default async function upgradeCLI(isUpdate = false): Promise<void> {
       "install",
       "-A",
       "--unstable",
+      "--quiet",
       `--import-map=${getBarrelURI(latest, "import_map.json")}`,
-      "--location",
-      "http://0.0.0.0/",
       "-n",
       "barrel",
       "-f",

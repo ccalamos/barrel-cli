@@ -1,10 +1,12 @@
+import CreateAction from "./create.ts";
 import Command from "../command.ts";
 
-const CreateCommand = new Command<[workspace_name: string] | []>("create", {
+export type CreateArguments = [] | [workspace_name: string];
+
+const CreateCommand = new Command<CreateArguments>("create", {
   description: "Create a new barrel workspace",
   arguments: ["[workspace_name]"],
-  action: ([workspace_name]) =>
-    console.log("hello from create (args: ", workspace_name, ")"),
+  action: CreateAction,
 });
 
 export default CreateCommand;
