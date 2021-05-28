@@ -5,9 +5,9 @@ import { getVersion } from "utils";
 
 const Program = new CLIMod<void>();
 Program.name("barrel");
-Program.version(getVersion(true));
+Program.version(getVersion());
 Program.versionOption(
-  "-v, --version, -V",
+  "-V, --version",
   "Print version info.",
   function (this: CLIMod<void>) {
     console.log("%s", this.getVersion());
