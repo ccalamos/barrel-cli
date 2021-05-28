@@ -4,7 +4,7 @@ import type { ICommand } from "types";
 export default class Command implements ICommand {
   public name!: string;
   public description!: string;
-  public action!: () => void;
+  public action!: (args: string[]) => void;
   public arguments: string[];
   private mod: CLIMod;
 
@@ -22,7 +22,7 @@ export default class Command implements ICommand {
     }
 
     this.mod.description(this.description);
-    this.mod.action(this.action);
+    this.mod.action((_options, ...args) => this.action(args));
 
     return [this.name, this.mod];
   }

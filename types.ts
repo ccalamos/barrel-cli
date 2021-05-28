@@ -7,7 +7,7 @@ export type FilePath = `${string}.${string}`;
 export interface ICommand {
   name: string;
   description: string;
-  action: () => void;
+  action: (args: string[]) => void;
   arguments?: string[];
 }
 

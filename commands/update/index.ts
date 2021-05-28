@@ -3,7 +3,7 @@ import Command from "../command.ts";
 
 const UpdateCommand = new Command("update", {
   description: "Update barrel to latest version",
-  action: UpgradeAction,
+  action: async (): Promise<void> => await UpgradeAction(true),
 });
 
 export default UpdateCommand;
