@@ -3,7 +3,7 @@ import { Command as CLIMod } from "cliffy/command/mod.ts";
 import Commands from "commands/index.ts";
 import { getVersion } from "utils";
 
-const Program = new CLIMod();
+const Program = new CLIMod<void>();
 Program.name("barrel");
 Program.version(getVersion());
 Program.description("Mono-Repo for Multi-Repos");

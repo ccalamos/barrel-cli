@@ -7,7 +7,7 @@ import { GITHUB_USER_URI } from "globals";
 import { get, Store } from "utils";
 import { tty } from "cliffy/ansi/mod.ts";
 
-const LoginCommand = new Command("login", {
+const LoginCommand = new Command<[]>("login", {
   description: "Login to GitHub",
   action: async (): Promise<void> => {
     const { access_token: accessToken } = await getUserCode().then(

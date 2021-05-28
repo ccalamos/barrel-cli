@@ -1,6 +1,6 @@
 import Command from "../command.ts";
 
-const CreateCommand = new Command("create", {
+const CreateCommand = new Command<[workspace_name: string] | []>("create", {
   description: "Create a new barrel workspace",
   arguments: ["[workspace_name]"],
   action: ([workspace_name]) =>

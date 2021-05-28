@@ -4,11 +4,11 @@ export type Scalar = number | string | boolean;
 
 export type FilePath = `${string}.${string}`;
 
-export interface ICommand {
+export interface ICommand<ActionArgs extends string[]> {
   name: string;
   description: string;
-  action: (args: string[]) => void;
-  arguments?: string[];
+  action: (args: ActionArgs) => void;
+  arguments?: ActionArgs;
 }
 
 export interface IVersion {
